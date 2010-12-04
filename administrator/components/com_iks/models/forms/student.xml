@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!-- $Id: banner.xml 19357 2010-11-05 16:47:35Z chdemko $ -->
+<form>
+	<fieldset name="details"
+		addfieldpath="/administrator/components/com_iks/models/fields"
+	>
+		<field name="id" type="text" default="0" 
+			readonly="true" class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL" 	description ="JGLOBAL_FIELD_ID_DESC" />
+
+		<field name="first_name" type="text" class="inputbox"
+			size="40" label="First Name"
+			description="Student First Name" required="true" />
+
+                 <field name="last_name" type="text" class="inputbox"
+			size="40" label="last Name"
+			description="Student Last Name" required="true" />
+
+                 <field name="next_name" type="text" class="inputbox"
+			size="40" label="Next Name"
+			description="Student Next Name" required="true" />
+
+                <field name="gender" type="text" class="inputbox"
+			size="10" label="Gender"
+			description="Student gender" />
+
+                <field name="date_of_birth" type="calendar" class="inputbox"
+			size="40" label="Date Of Birth"
+			description="Student Date of Birth" required="false" />
+
+                <field name="place_of_birth" type="text" class="inputbox"
+			size="40" label="Place Of Birth"
+			description="Student Place of Birth" required="false" />
+
+                <field name="address" type="text" class="inputbox"
+			size="40" label="Address"
+			description="Student address" required="false" />
+
+
+                <field name="village" type="text" class="inputbox"
+			size="40" label="Village"
+			description="Student village" required="false" />
+
+                <field name="commune" type="text" class="inputbox"
+			size="40" label="Commune"
+			description="Student commune" required="false" />
+
+               <field name="district" type="text" class="inputbox"
+			size="40" label="District"
+			description="Student district" required="false" />
+
+               <field name="province" type="text" class="inputbox"
+			size="40" label="Province"
+			description="Student province" required="false" />
+
+               <field name="grade" type="text" class="inputbox"
+			size="40" label="Grade"
+			description="Student grade" required="false" />
+
+               <field name="photo" type="text" class="inputbox"
+			size="40" label="Photo"
+			description="Student photo" required="false" />
+
+               <field name="favorite" type="text" class="inputbox"
+			size="40" label="Favorite"
+			description="Student favorite" required="false" />
+
+
+               <field name="interested" type="text" class="inputbox"
+			size="40" label="Interested"
+			description="Student interested" required="false" />
+
+               <field name="purpose" type="text" class="inputbox"
+			size="40" label="Purpose"
+			description="Student purpose" required="false" />
+
+               <field name="introtext" type="textarea" class="inputbox"
+			size="40" label="Description"
+			description="Student introtext" required="false" />
+		
+		
+		<field name="state" type="list"
+			label="JGLOBAL_STATE" description="COM_BANNERS_FIELD_STATE_DESC"
+			class="inputbox" size="1" default="1" >
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+			<option value="2">JARCHIVED</option>
+			<option value="-2">JTRASH</option>
+		</field>
+
+	</fieldset>
+
+	<fieldset name="publish"
+		label="Published"
+	>
+
+		<field name="created" type="calendar"
+			label="COM_BANNERS_FIELD_CREATED_LABEL" description="COM_BANNERS_FIELD_CREATED_DESC"
+			class="inputbox" size="22" format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc" />
+	</fieldset>
+
+	<fieldset name="metadata"
+		label="Metadata"
+	>
+
+		<field name="metakey" type="textarea" class="inputbox"
+			rows="3" cols="30" label="JFIELD_META_KEYWORDS_LABEL"
+			description="COM_BANNERS_FIELD_METAKEYWORDS_DESC" />
+
+		<field name="own_prefix" type="radio"
+			label="COM_BANNERS_FIELD_BANNEROWNPREFIX_LABEL"
+			description="COM_BANNERS_FIELD_BANNEROWNPREFIX_DESC"
+			default="0" class="inputbox"
+		>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field name="metakey_prefix" type="text"
+			label="COM_BANNERS_FIELD_METAKEYWORDPREFIX_LABEL"
+			description="COM_BANNERS_FIELD_METAKEYWORDPREFIX_DESC" />
+
+	</fieldset>
+
+	<fields name="params">
+		<fieldset name="image">
+			<field name="imageurl" type="media" directory="banners"
+				hide_none="1" label="COM_BANNERS_FIELD_IMAGE_LABEL"
+				size="40"
+				description="COM_BANNERS_FIELD_IMAGE_DESC" />
+			<field name="width" type="text"
+				class="inputbox validate-numeric" label="COM_BANNERS_FIELD_WIDTH_LABEL"
+				description="COM_BANNERS_FIELD_WIDTH_DESC" />
+
+			<field name="height" type="text"
+				class="inputbox validate-numeric" label="COM_BANNERS_FIELD_HEIGHT_LABEL"
+				description="COM_BANNERS_FIELD_HEIGHT_DESC" />
+			<field name="alt" type="text" class="inputbox"
+				label="COM_BANNERS_FIELD_ALT_LABEL" description="COM_BANNERS_FIELD_ALT_DESC" />
+		</fieldset>
+	</fields>
+</form>

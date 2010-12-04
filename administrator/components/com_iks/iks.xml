@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!-- $Id: iks.xml 18946 2010-09-18 09:06:18Z infograf768 $ -->
+<extension type="component" version="1.6.0" method="upgrade">
+	<name>com_iks</name>
+	<author>Joomla! Project</author>
+	<creationDate>April 2006</creationDate>
+	<copyright>(C) 2005 - 2010 Open Source Matters. All rights reserved.
+	</copyright>
+	<license>GNU General Public License version 2 or later; see
+		LICENSE.txt</license>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.6.0</version>
+	<description>IKS-School
+	</description>
+
+	<files folder="site">
+		<filename>iks.php</filename>
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>router.php</filename>
+		<folder>helpers</folder>
+		<folder>models</folder>
+	</files>
+	<administration>
+		<menu>IKS-School</menu>
+		<submenu>
+			
+		</submenu>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>iks.php</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB.com_iks.ini
+			</language>
+			<language tag="en-GB">language/en-GB.com_iks.sys.ini
+			</language>
+		</languages>
+	</administration>
+</extension>
+
