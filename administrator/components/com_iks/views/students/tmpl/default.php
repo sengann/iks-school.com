@@ -16,7 +16,7 @@ JHTML::_('script','system/multiselect.js',false,true);
 $user		= JFactory::getUser();
 $userId		= $user->get('id');
 $listOrder	= $this->state->get('list.ordering');
-$listDirn	= $this->state->get('list.direction');
+$listDir	= $this->state->get('list.direction');
 $canOrder	= $user->authorise('core.edit.state', 'com_iks.student');
 //$saveOrder	= $listOrder=='ordering';
 ?>
@@ -45,14 +45,14 @@ $canOrder	= $user->authorise('core.edit.state', 'com_iks.student');
 					<input type="checkbox" name="checkall-toggle" value="" onclick="checkAll(this)" />
 				</th>
 				<th>
-					<?php echo JHtml::_('grid.sort',  'First Name', 'first_name', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort',  'Student Name', 'first_name', $listDir, $listOrder); ?>
 				</th>
 				<th width="5%">
-					<?php echo JHtml::_('grid.sort', 'JPUBLISHED', 'state', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort', 'JPUBLISHED', 'state', $listDir, $listOrder); ?>
 				</th>
 
 				<th width="1%" class="nowrap">
-					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ID', 'id', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ID', 'id', $listDir, $listOrder); ?>
 				</th>
 			</tr>
 		</thead>
@@ -80,11 +80,14 @@ $canOrder	= $user->authorise('core.edit.state', 'com_iks.student');
 					<?php endif; ?>
 					<?php if ($canEdit) : ?>
 						<a href="<?php echo JRoute::_('index.php?option=com_iks&task=student.edit&id='.(int) $item->id); ?>">
-							<?php echo $this->escape($item->first_name); ?></a>
+							<?php echo $this->escape($item->first_name).' '.$this->escape($item->last_name) ; ?></a>
 					<?php else : ?>
-						<?php echo $this->escape($item->first_name); ?>
+						<?php echo $this->escape($item->first_name).' '.$this->escape($item->last_name) ; ?>
 					<?php endif; ?>
 
+				</td>
+                                <td class="center">
+					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'students.', $canChange, 'cb'); ?>
 				</td>
 
 				<td class="center">
@@ -99,7 +102,7 @@ $canOrder	= $user->authorise('core.edit.state', 'com_iks.student');
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="boxchecked" value="0" />
 		<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
-		<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
+		<input type="hidden" name="filter_order_Dir" value="<?php echo $listDir; ?>" />
 		<?php echo JHtml::_('form.token'); ?>
 	</div>
 </form>

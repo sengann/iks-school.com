@@ -168,7 +168,7 @@ class IKSModelStudents extends JModelList
 		$this->setState('filter.language', $language);
 
 		// Load the parameters.
-		$params = JComponentHelper::getParams('com_students');
+		$params = JComponentHelper::getParams('com_iks');
 		$this->setState('params', $params);
 
 		// List state information.

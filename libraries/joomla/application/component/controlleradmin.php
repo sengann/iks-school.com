@@ -137,6 +137,7 @@ class JControllerAdmin extends JController
 	 */
 	function publish()
 	{
+                        
 		// Check for request forgeries
 		JRequest::checkToken() or die(JText::_('JINVALID_TOKEN'));
 

@@ -88,10 +88,11 @@ class IKSViewStudents extends JView
 			JToolBarHelper::custom('students.checkin', 'checkin.png', 'checkin_f2.png', 'JTOOLBAR_CHECKIN', true);
 		}
 
-		if ($this->state->get('filter.state') == -2 && $canDo->get('core.delete')) {
+		if ($canDo->get('core.delete')) {
 			JToolBarHelper::deleteList('', 'students.delete','JTOOLBAR_EMPTY_TRASH');
 			JToolBarHelper::divider();
 		}
+                
 		else if ($canDo->get('core.edit.state')) {
 			JToolBarHelper::trash('students.trash','JTOOLBAR_TRASH');
 			JToolBarHelper::divider();

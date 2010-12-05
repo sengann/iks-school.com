@@ -1,20 +1,7 @@
 <?php
-/**
- * @version		$Id: client.php 16235 2010-04-20 04:13:25Z pasamio $
- * @copyright	Copyright (C) 2005 - 2010 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- */
-
 // no direct access
 defined('_JEXEC') or die;
 
-/**
- * student table
- *
- * @package		Joomla.Framework
- * @subpackage	com_iks
- * @since		1.6
- */
 class IKSTableStudent extends JTable
 {
 	
@@ -23,18 +10,7 @@ class IKSTableStudent extends JTable
 		parent::__construct('#__iks_student', 'id', $_db);
 	}
 
-	/**
-	 * Method to set the publishing state for a row or list of rows in the database
-	 * table.  The method respects checked out rows by other users and will attempt
-	 * to checkin rows that it can after adjustments are made.
-	 *
-	 * @param	mixed	An optional array of primary key values to update.  If not
-	 *					set the instance property value is used.
-	 * @param	integer The publishing state. eg. [0 = unpublished, 1 = published]
-	 * @param	integer The user id of the user performing the operation.
-	 * @return	boolean	True on success.
-	 * @since	1.0.4
-	 */
+	
 	public function publish($pks = null, $state = 1, $userId = 0)
 	{
 		// Initialise variables.

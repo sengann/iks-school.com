@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+       <field name="id" id='id' type="text" default="0"
+			readonly="true" class="readonly"
+			label="ID" description ="ID"/>
+            
+	<field name="name"
+			type="text"
+			label="Name"
+			description="Province Name"
+			size="40"
+			default=""
+                        required="true"
+		/>
+        <field name="slug"
+			type="text"
+			label="Slug"
+			description="Province Slug"
+			size="40"
+			default=""
+		/>
+
+
+        <field name="description"
+			type="editor"
+			label="Description"
+			description="Province descrition"
+			size="40"
+			default=""
+		/>
+</form>

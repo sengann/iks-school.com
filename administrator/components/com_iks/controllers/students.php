@@ -19,19 +19,9 @@ jimport('joomla.application.component.controlleradmin');
  */
 class IKSControllerStudents extends JControllerAdmin
 {
-	/**
-	 * @var		string	The prefix to use with controller messages.
-	 * @since	1.6
-	 */
-	protected $text_prefix = 'IKS';
+	
+	protected $text_prefix = 'STUDENT';
 
-	/**
-	 * Constructor.
-	 *
-	 * @param	array An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
-	 */
 	public function __construct($config = array())
 	{
 		parent::__construct($config);
@@ -39,12 +29,8 @@ class IKSControllerStudents extends JControllerAdmin
 
 		//$this->registerTask('sticky_unpublish',	'sticky_publish');
 	}
-
-	/**
-	 * Proxy for getModel.
-	 * @since	1.6
-	 */
-	public function &getModel($name = 'Students', $prefix = 'IKSModel')
+	
+	public function &getModel($name = 'Student', $prefix = 'IKSModel')
 	{
 		$model = parent::getModel($name, $prefix, array('ignore_request' => true));
 		return $model;

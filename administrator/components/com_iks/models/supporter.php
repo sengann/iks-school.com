@@ -1,63 +1,35 @@
 <?php
-/**
- * @version		$Id: banner.php 19254 2010-10-28 22:36:32Z eddieajau $
- * @copyright	Copyright (C) 2005 - 2010 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- */
-
 // No direct access.
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.modeladmin');
 
-/**
- * Banner model.
- *
- * @package		Joomla.Administrator
- * @subpackage	com_banners
- * @since		1.6
- */
-class IKSModelStudent extends JModelAdmin
-{
-	/**
-	 * @var		string	The prefix to use with controller messages.
-	 * @since	1.6
-	 */
-	protected $text_prefix = 'Student';
 
-	/**
-	 * Method to test whether a record can be deleted.
-	 *
-	 * @param	object	A record object.
-	 * @return	boolean	True if allowed to delete the record. Defaults to the permission set in the component.
-	 * @since	1.6
-	 */
+class IKSModelSupporter extends JModelAdmin
+{
+	
+	protected $text_prefix = 'Supporter';
+
+	
 	protected function canDelete($record)
 	{
 		$user = JFactory::getUser();
 
-		if (!empty($record->catid)) {
-			return $user->authorise('core.delete', 'com_banners.category.'.(int) $record->catid);
+		if (!empty($record->id)) {
+			return $user->authorise('core.delete', 'com_iks.supporter.'.(int) $record->id);
 		}
 		else {
 			return parent::canDelete($record);
 		}
 	}
 
-	/**
-	 * Method to test whether a record can be deleted.
-	 *
-	 * @param	object	A record object.
-	 * @return	boolean	True if allowed to change the state of the record. Defaults to the permission set in the component.
-	 * @since	1.6
-	 */
 	protected function canEditState($record)
 	{
 		$user = JFactory::getUser();
 
-		// Check against the category.
+		
 		if (!empty($record->id)) {
-			return $user->authorise('core.edit.state', 'com_iks.students.'.(int) $record->id);
+			return $user->authorise('core.edit.state', 'com_iks.supporters.'.(int) $record->id);
 		}
 		// Default to component settings if category not known.
 		else {
@@ -65,16 +37,8 @@ class IKSModelStudent extends JModelAdmin
 		}
 	}
 
-	/**
-	 * Returns a reference to the a Table object, always creating it.
-	 *
-	 * @param	type	The table type to instantiate
-	 * @param	string	A prefix for the table class name. Optional.
-	 * @param	array	Configuration array for model. Optional.
-	 * @return	JTable	A database object
-	 * @since	1.6
-	 */
-	public function getTable($type = 'Student', $prefix = 'IKSTable', $config = array())
+	
+	public function getTable($type = 'Supporter', $prefix = 'IKSTable', $config = array())
 	{
 		return JTable::getInstance($type, $prefix, $config);
 	}
@@ -90,13 +54,13 @@ class IKSModelStudent extends JModelAdmin
 	public function getForm($data = array(), $loadData = true)
 	{
 		// Get the form.
-		$form = $this->loadForm('com_iks.student', 'student', array('control' => 'jform', 'load_data' => $loadData));
+		$form = $this->loadForm('com_iks.supporter', 'supporter', array('control' => 'jform', 'load_data' => $loadData));
 		if (empty($form)) {
 			return false;
 		}
 
 		// Determine correct permissions to check.
-		if ($this->getState('student.id')) {
+		if ($this->getState('supporter.id')) {
 			// Existing record. Can only edit in selected categories.
 			$form->setFieldAttribute('id', 'action', 'core.edit');
 		} else {
@@ -134,15 +98,15 @@ class IKSModelStudent extends JModelAdmin
 	protected function loadFormData()
 	{
 		// Check the session for previously entered form data.
-		$data = JFactory::getApplication()->getUserState('com_iks.edit.student.data', array());
+		$data = JFactory::getApplication()->getUserState('com_iks.edit.supporter.data', array());
 
 		if (empty($data)) {
 			$data = $this->getItem();
 
 			// Prime some default values.
-			if ($this->getState('student.id') == 0) {
+			if ($this->getState('supporter.id') == 0) {
 				$app = JFactory::getApplication();
-				$data->set('id', JRequest::getInt('id', $app->getUserState('com_iks.student.filter.id')));
+				$data->set('id', JRequest::getInt('id', $app->getUserState('com_iks.supporter.filter.id')));
 			}
 		}
 

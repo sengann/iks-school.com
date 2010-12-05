@@ -1,28 +1,12 @@
 <?php
-/**
- * @version		$Id: banners.php 19230 2010-10-27 09:06:14Z infograf768 $
- * @copyright	Copyright (C) 2005 - 2010 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- */
 
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.modellist');
 
-/**
- *
- * @package		Joomla.Administrator
- * @subpackage	com_iks
- * @since		1.6
- */
 class IKSModelSupporters extends JModelList
 {
-	/**
-	 * Build an SQL query to load the list data.
-	 *
-	 * @return	JDatabaseQuery
-	 * @since	1.6
-	 */
+	
 	protected function getListQuery()
 	{
 		// Initialise variables.
@@ -148,7 +132,7 @@ class IKSModelSupporters extends JModelList
 		$this->setState('filter.language', $language);
 
 		// Load the parameters.
-		$params = JComponentHelper::getParams('com_students');
+		$params = JComponentHelper::getParams('com_iks');
 		$this->setState('params', $params);
 
 		// List state information.

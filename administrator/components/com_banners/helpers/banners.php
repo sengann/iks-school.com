@@ -66,7 +66,6 @@ class BannersHelper
 	{
 		$user	= JFactory::getUser();
 		$result	= new JObject;
-
 		if (empty($categoryId)) {
 			$assetName = 'com_banners';
 		} else {

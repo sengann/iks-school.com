@@ -10,6 +10,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
+
 /**
  * View class for a list of banners.
  *
@@ -17,7 +18,7 @@ jimport('joomla.application.component.view');
  * @subpackage	com_iks
  * @since		1.6
  */
-class IKSViewSupporters extends JView
+class IKSViewsupporters extends JView
 {
 	//protected $categories;
 	protected $items;
@@ -57,43 +58,43 @@ class IKSViewSupporters extends JView
 
 		$canDo	= IKSHelper::getActions($this->state->get('filter.id'));
 
-		JToolBarHelper::title(JText::_('Student Management'), 'banners.png');
+		JToolBarHelper::title(JText::_('supporter Management'), 'banners.png');
 		if ($canDo->get('core.create')) {
-			JToolBarHelper::addNew('student.add','JTOOLBAR_NEW');
+			JToolBarHelper::addNew('supporter.add','JTOOLBAR_NEW');
 		}
 
 		if (($canDo->get('core.edit'))) {
-			JToolBarHelper::editList('student.edit','JTOOLBAR_EDIT');
+			JToolBarHelper::editList('supporter.edit','JTOOLBAR_EDIT');
 		}
 
 		if ($canDo->get('core.edit.state')) {
 			if ($this->state->get('filter.state') != 2){
 				JToolBarHelper::divider();
-				JToolBarHelper::custom('students.publish', 'publish.png', 'publish_f2.png','JTOOLBAR_PUBLISH', true);
-				JToolBarHelper::custom('students.unpublish', 'unpublish.png', 'unpublish_f2.png', 'JTOOLBAR_UNPUBLISH', true);
+				JToolBarHelper::custom('supporters.publish', 'publish.png', 'publish_f2.png','JTOOLBAR_PUBLISH', true);
+				JToolBarHelper::custom('supporters.unpublish', 'unpublish.png', 'unpublish_f2.png', 'JTOOLBAR_UNPUBLISH', true);
 			}
 
 			if ($this->state->get('filter.state') != -1 ) {
 				JToolBarHelper::divider();
 				if ($this->state->get('filter.state') != 2) {
-					JToolBarHelper::archiveList('students.archive','JTOOLBAR_ARCHIVE');
+					JToolBarHelper::archiveList('supporter.archive','JTOOLBAR_ARCHIVE');
 				}
 				else if ($this->state->get('filter.state') == 2) {
-					JToolBarHelper::unarchiveList('students.publish', 'JTOOLBAR_UNARCHIVE');
+					JToolBarHelper::unarchiveList('supporters.publish', 'JTOOLBAR_UNARCHIVE');
 				}
 			}
 		}
 
 		if ($canDo->get('core.edit.state')) {
-			JToolBarHelper::custom('students.checkin', 'checkin.png', 'checkin_f2.png', 'JTOOLBAR_CHECKIN', true);
+			JToolBarHelper::custom('supporters.checkin', 'checkin.png', 'checkin_f2.png', 'JTOOLBAR_CHECKIN', true);
 		}
 
 		if ($this->state->get('filter.state') == -2 && $canDo->get('core.delete')) {
-			JToolBarHelper::deleteList('', 'students.delete','JTOOLBAR_EMPTY_TRASH');
+			JToolBarHelper::deleteList('', 'supporters.delete','JTOOLBAR_EMPTY_TRASH');
 			JToolBarHelper::divider();
 		}
 		else if ($canDo->get('core.edit.state')) {
-			JToolBarHelper::trash('students.trash','JTOOLBAR_TRASH');
+			JToolBarHelper::trash('supporters.trash','JTOOLBAR_TRASH');
 			JToolBarHelper::divider();
 		}
 
